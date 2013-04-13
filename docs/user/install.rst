@@ -3,54 +3,54 @@
 Installation
 ============
 
-This part of the documentation covers the installation of Requests.
-The first step to using any software package is getting it properly installed.
+Dieser Teil der Dokumentation behandelt die Installation von Requests.
+Der erste Schritt zur Benutzung jeder Software ist es, diese korrekt zu installieren.
 
 
 Distribute & Pip
 ----------------
 
-Installing requests is simple with `pip <http://www.pip-installer.org/>`_::
+Die Installation von Requests funktioniert sehr einfach über `pip <http://www.pip-installer.org/>`_::
 
     $ pip install requests
 
-or, with `easy_install <http://pypi.python.org/pypi/setuptools>`_::
+order mit `easy_install <http://pypi.python.org/pypi/setuptools>`_::
 
     $ easy_install requests
 
-But, you really `shouldn't do that <http://www.pip-installer.org/en/latest/other-tools.html#pip-compared-to-easy-install>`_.
+Aber das sollten Sie `wirklich nicht machen <http://www.pip-installer.org/en/latest/other-tools.html#pip-compared-to-easy-install>`_.
 
 
 
 Cheeseshop Mirror
 -----------------
 
-If the Cheeseshop is down, you can also install Requests from one of the
-mirrors. `Crate.io <http://crate.io>`_ is one of them::
+Falls der Cheeseshop offline ist, können Sie Requests von einem der Mirrors installieren.
+`Crate.io <http://crate.io>`_ ist einer von ihnen::
 
     $ pip install -i http://simple.crate.io/ requests
 
 
-Get the Code
-------------
+Holen Sie sich den Code
+-----------------------
 
-Requests is actively developed on GitHub, where the code is
-`always available <https://github.com/kennethreitz/requests>`_.
+Requests wird aktiv auf Guthub entwickelt, wo der Code 
+`immer verfügbar ist <https://github.com/kennethreitz/requests>`_.
 
-You can either clone the public repository::
+Sie können entweder das öffentliche Repository clonen::
 
     git clone git://github.com/kennethreitz/requests.git
 
-Download the `tarball <https://github.com/kennethreitz/requests/tarball/master>`_::
+Laden Sie den `tarball <https://github.com/kennethreitz/requests/tarball/master>`_ herunter::
 
     $ curl -OL https://github.com/kennethreitz/requests/tarball/master
 
-Or, download the `zipball <https://github.com/kennethreitz/requests/zipball/master>`_::
+Oder sie laden den `zipball <https://github.com/kennethreitz/requests/zipball/master>`_::
 
     $ curl -OL https://github.com/kennethreitz/requests/zipball/master
 
 
-Once you have a copy of the source, you can embed it in your Python package,
-or install it into your site-packages easily::
+Sobald Sie eine Kopie des Quellcodes haben, können Sie diesen in Ihr Python-Package einbetten oder
+einfach zu Ihren site-packages hinzufügen::
 
     $ python setup.py install

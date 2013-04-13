@@ -1,20 +1,20 @@
 .. _api:
 
-Developer Interface
-===================
+Entwickler-Schnittstelle
+========================
 
 .. module:: requests
 
-This part of the documentation covers all the interfaces of Requests.  For
-parts where Requests depends on external libraries, we document the most
-important right here and provide links to the canonical documentation.
+Dieser Teil der Dokumentation deckt alle Schnittstellen von Requests ab.
+Für die Teile von Requests, die externe Bibliotheken benötigen, dokumentieren
+wir die wichtigsten hier an dieser Stelle und geben Links zur eigentlichen Dokumentation an.
 
 
-Main Interface
---------------
+Haupt-Schnittstelle
+-------------------
 
-All of Request's functionality can be accessed by these 7 methods.
-They all return an instance of the :class:`Response <Response>` object.
+Die gesamte Funktionalität von Requests kann mit diesen 7 Methoden erreicht werden.
+Alle liefern eine Instanz der Klasse :class:`Respsonse <Response>`_.
 
 .. autofunction:: request
 
@@ -26,8 +26,8 @@ They all return an instance of the :class:`Response <Response>` object.
 .. autofunction:: delete
 
 
-Lower-Level Classes
-~~~~~~~~~~~~~~~~~~~
+Untergeordnete Klassen
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. autoclass:: requests.Request
    :inherited-members:
@@ -57,8 +57,8 @@ Exceptions
 .. autoexception:: TooManyRedirects
 
 
-Status Code Lookup
-~~~~~~~~~~~~~~~~~~
+Nachschlagen von Statuscodes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. autofunction:: requests.codes
 
@@ -90,7 +90,7 @@ Encodings
 .. autofunction:: decode_gzip
 
 
-Classes
+Klassen
 ~~~~~~~
 
 .. autoclass:: requests.Response
@@ -111,17 +111,17 @@ Classes
    :inherited-members:
 
 
-Migrating to 1.x
-----------------
+Migration auf 1.x
+-----------------
 
-This section details the main differences between 0.x and 1.x and is meant
-to ease the pain of upgrading.
+Dieser Abschnitt zeigt die Hauptunterschiede zwischen 0.x und 1.x auf und 
+ist dazu gedacht, den Schmerz eines Upgrades möglichst gering zu halten.
 
 
-API Changes
-~~~~~~~~~~~
+Änderungen der API
+~~~~~~~~~~~~~~~~~~
 
-* ``Response.json`` is now a callable and not a property of a response.
+* ``Response.json`` ist jetzt ein callable und nicht länger eine Eigenschaft einer Serverantwort.
 
   ::
 

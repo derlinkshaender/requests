@@ -1,32 +1,32 @@
 .. _faq:
 
-Frequently Asked Questions
-==========================
+Häufig gestelle Fragen
+======================
 
-This part of the documentation answers common questions about Requests.
+Dieser Teil der Dokumentation beantwortet häufig gestellte Fragen zu Requests.
 
 Encoded Data?
 -------------
 
-Requests automatically decompresses gzip-encoded responses, and does
-its best to decode response content to unicode when possible.
+Requests dekomprimiert automatisch Antworten, die gzip-kodiert sind und versucht sein Bestes,
+um Antworten des Servers wenn möglich in Unicode umzuwandeln.
 
-You can get direct access to the raw response (and even the socket),
-if needed as well.
-
-
-Custom User-Agents?
--------------------
-
-Requests allows you to easily override User-Agent strings, along with
-any other HTTP Header.
+Falls Sie das benötigen, können Sie auch die die Rohdaten der Antwort (und sogar auf den Socket)
+zugreifen.
 
 
-Why not Httplib2?
------------------
+Benutzerdefinierter User-Agents?
+--------------------------------
 
-Chris Adams gave an excellent summary on
-`Hacker News <http://news.ycombinator.com/item?id=2884406>`_:
+Requests erlaubt es Ihnen, auch einfache Art und Weise den User-Agent-String zu überschreiben,
+zusammen mit jedem anderem HTTP-Header.
+
+
+Warum nicht Httplib2?
+---------------------
+
+Chris Adams hat dazu eine exizellante Zusammenfassung auf 
+`Hacker News <http://news.ycombinator.com/item?id=2884406>`_ geschrieben:
 
     httplib2 is part of why you should use requests: it's far more respectable
     as a client but not as well documented and it still takes way too much code
@@ -48,11 +48,10 @@ Chris Adams gave an excellent summary on
     httplib2" would get the working version.
 
 
-Python 3 Support?
------------------
+Unterstützung für Python 3?
+---------------------------
 
-Yes! Here's a list of Python platforms that are officially
-supported:
+Ja! Hier ist die Liste der Python-Versionen, die offiziell unterstützt werden:
 
 * Python 2.6
 * Python 2.7

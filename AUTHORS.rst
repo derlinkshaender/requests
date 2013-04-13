@@ -1,8 +1,8 @@
-Requests is written and maintained by Kenneth Reitz and
-various contributors:
+Requests wird geschrieben und betreut von Kenneth Reitz und
+verschiedenen Autoren:
 
-Development Lead
-````````````````
+Entwicklungsleitung
+```````````````````
 
 - Kenneth Reitz <me@kennethreitz.com>
 
@@ -13,10 +13,10 @@ Urllib3
 - Andrey Petrov <andrey.petrov@shazow.net>
 
 
-Patches and Suggestions
-```````````````````````
+Patches und Vorschläge
+``````````````````````
 
-- Various Pocoo Members
+- Verschiedene Mitglieder von Pocoo
 - Chris Adams
 - Flavio Percoco Premoli
 - Dj Gilcrease

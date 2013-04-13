@@ -1,25 +1,25 @@
 .. _introduction:
 
-Introduction
+Einführung
 ============
 
-Philosophy
+Philosophie
 ----------
 
-Requests was developed with a few :pep:`20` idioms in mind.
+Requests wurde in Anlehnung an einige :pep:`20` Idiome entwickelt.
 
 
-#. Beautiful is better than ugly.
-#. Explicit is better than implicit.
-#. Simple is better than complex.
-#. Complex is better than complicated.
-#. Readability counts.
+#. Schön ist besser als häßlich.
+#. Explizit ist besser als implizit.
+#. Einfach ist besser als komplex.
+#. Komplex ist besser als kompliziert.
+#. Lesbarkeit zählt.
 
-All contributions to Requests should keep these important rules in mind.
+Alle Beiträge zu Requests sollen diese wichtigen Regeln beachten.
 
 .. _`apache2`:
 
-Apache2 License
+Apache2 Lizenz
 -----------
 
 A large number of open source projects you find today are `GPL Licensed`_.
@@ -33,13 +33,13 @@ The MIT, BSD, ISC, and Apache2 licenses are great alternatives to the GPL
 that allow your open-source software to be used freely in proprietary,
 closed-source software.
 
-Requests is released under terms of `Apache2 License`_.
+Requests wird unter den Bedingungen der `Apache2 License`_ bereit gestellt.
 
 .. _`GPL Licensed`: http://www.opensource.org/licenses/gpl-license.php
 .. _`Apache2 License`: http://opensource.org/licenses/Apache-2.0
 
 
-Requests License
+Requests Lizenz
 ----------------
 
     .. include:: ../../LICENSE

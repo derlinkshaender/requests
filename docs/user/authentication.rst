@@ -1,42 +1,41 @@
 .. _authentication:
 
-Authentication
-==============
+Authentifizierung
+=================
 
-This document discusses using various kinds of authentication with Requests.
+Dieses Dokument behandelt verschiedene Arten der Authentifizierung mit Requests.
 
-Many web services require authentication, and there are many different types.
-Below, we outline various forms of authentication available in Requests, from
-the simple to the complex.
+Viele Webdienste erforderne eine Anmeldung und es gibt eine ganze Reihe verschiedener Typen.
+Nachfolgend diskutieren wir verschiedene Formen der Authentifizierung, die in Requests verfügbar sind,
+vom Einfachen zum Komplexen.
 
 
 Basic Authentication
 --------------------
 
-Many web services that require authentication accept HTTP Basic Auth. This is
-the simplest kind, and Requests supports it straight out of the box.
+Viele Webdienste, die eine Anmeldung erfordern, akzeptieren HTTP Basic Auth. Dies ist die einfachste
+Art und Weise und Requests unterstützt dies direkt.
 
-Making requests with HTTP Basic Auth is very simple::
+Anforderungen mit HTTP Basic Auth zu senden, ist sehr einfach::
 
     >>> from requests.auth import HTTPBasicAuth
     >>> requests.get('https://api.github.com/user', auth=HTTPBasicAuth('user', 'pass'))
     <Response [200]>
 
-In fact, HTTP Basic Auth is so common that Requests provides a handy shorthand
-for using it::
+tatsächlich ist HTTP Basic Auth so verbreitet, dass Requests dafür ein nützliches Kürzel zur Verfügung stellt::
 
     >>> requests.get('https://api.github.com/user', auth=('user', 'pass'))
     <Response [200]>
 
-Providing the credentials in a tuple like this is exactly the same as the
-``HTTPBasicAuth`` example above.
+Die Anmeldedaten in einem Tupel wie diesem bereit zu stellen ist exakt das Gleiche als in dem 
+``HTTPBasicAuth`` Beispiel oben.
 
 
 Digest Authentication
 ---------------------
 
-Another very popular form of HTTP Authentication is Digest Authentication,
-and Requests supports this out of the box as well::
+Eine andere sehr verbreitete Art der HTTP Authentifizierung ist Digest Authentication,
+die ebenfalls von Requests direkt unterstützt wird::
 
     >>> from requests.auth import HTTPDigestAuth
     >>> url = 'http://httpbin.org/digest-auth/auth/user/pass'
@@ -44,38 +43,36 @@ and Requests supports this out of the box as well::
     <Response [200]>
 
 
-Other Authentication
---------------------
+Andere Authentifizierungsarten
+------------------------------
 
-Requests is designed to allow other forms of authentication to be easily and
-quickly plugged in. Members of the open-source community frequently write
-authentication handlers for more complicated or less commonly-used forms of
-authentication. Some of the best have been brought together under the
-`Requests organization`_, including:
+Requests wurde so entworfen, dass andere Formen der Authentifizierung leicht schnell
+hinzugefügt werden können. Mitglieder der Open-Source Gemeinschaft schreiben oft
+Authentifizierungs-Handler für komplexere oder weniger verbreitete Formen der Anmeldung.
+Einige der besten wurden unter der `Requests organization`_ zusammengefasst, darunter:
 
 - OAuth_
 - Kerberos_
 - NTLM_
 
-If you want to use any of these forms of authentication, go straight to their
-Github page and follow the instructions.
+Falls Sie eine dieser Authentifizierungen benutzen wollen, gehen Sie einfach zu ihrer
+Github-Seite und folgen Sie den Anweisungen.
 
 
-New Forms of Authentication
----------------------------
+Neue Formen der Authentifizierung
+---------------------------------
 
-If you can't find a good implementation of the form of authentication you
-want, you can implement it yourself. Requests makes it easy to add your own
-forms of authentication.
+Falls Sie keine gute Implementierung für die Anmeldung, die Sie nutzen wollen, finden können,
+können Sie diese selbst implementieren. Requests macht es Ihnen leicht, eigene Authentifizierungsmodule
+hinzuzufügen.
 
-To do so, subclass :class:`requests.auth.AuthBase` and implement the
-``__call__()`` method. When an authentication handler is attached to a request,
-it is called during request setup. The ``__call__`` method must therefore do
-whatever is required to make the authentication work. Some forms of
-authentication will additionally add hooks to provide further functionality.
+Dazu leiten Sie von der Klasse :class:`requests.auth.AuthBase` ab und implementieren den Aufruf der
+``__call__()`` Methode. Wenn ein Authentifizierungs-Handler an eine Anforderung gebunden ist,
+wird er während des Setups der Anforderung aufgerufen. Die ``__call__`` Methode muss daher alles,
+was für das Gelingen der Anmeldung nötig ist, implementieren. Einige Formen der Authentifizierung
+stellen zusätzlich hooks für zusätzliche Funktionalitäten bereit.
 
-Examples can be found under the `Requests organization`_ and in the
-``auth.py`` file.
+Beispiele dazu finden Sie unter `Requests organization`_ und in der Datei ``auth.py``.
 
 .. _OAuth: https://github.com/requests/requests-oauthlib
 .. _Kerberos: https://github.com/requests/requests-kerberos
