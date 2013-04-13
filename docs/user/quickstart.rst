@@ -1,107 +1,108 @@
 .. _quickstart:
 
-Quickstart
-==========
+Schnellstart
+============
 
 .. module:: requests.models
 
-Eager to get started? This page gives a good introduction in how to get started
-with Requests. This assumes you already have Requests installed. If you do not,
-head over to the :ref:`Installation <install>` section.
+Sie wollen loslegen? Diese Seite bietet eine gute Einführung, wie Sie mit Requests starten.
+Wir nehmen an, Sie haben Requests bereits installiert. Falls nicht, finden Sie im Abschnitt
+:ref:`Installation <install>` die notwendigen Informationen dazu.
 
-First, make sure that:
+Zuerst stellen Sie bitte sicher, dass:
 
-* Requests is :ref:`installed <install>`
-* Requests is :ref:`up-to-date <updates>`
-
-
-Let's get started with some simple examples.
+* Requests :ref:`installiert <install>` ist.
+* Requests :ref:`auf dem akutellen Stand <updates>` ist.
 
 
-Make a Request
---------------
+Lassen Sie und mit einigen einfachen Beispielen beginnen.
 
-Making a request with Requests is very simple.
+Eine HTTP-Anforderung senden
+----------------------------
 
-Begin by importing the Requests module::
+Es ist sehr einfach, eine Anforderung mit Requests zu senden.
+
+Beginnen Sie mit dem Import des Requests Moduls::
 
     >>> import requests
 
-Now, let's try to get a webpage. For this example, let's get GitHub's public
-timeline ::
+Lassen Sie uns nun versuchen, eine Webseite zu laden. Für dieses Beispiel werden wir
+die öffnentliche Zeitleiste von Github lesen::
 
     >>> r = requests.get('https://github.com/timeline.json')
 
-Now, we have a :class:`Response` object called ``r``. We can get all the
-information we need from this object.
+Jetzt haben wir ein Objekt :class:`Response` mit dem Namen ``r``. Wir können alle benötigten 
+Informationen von diesem Objekt lesen.
 
-Requests' simple API means that all forms of HTTP request are as obvious. For
-example, this is how you make an HTTP POST request::
+Die einfache API von Requests bedeutet, dass alle Formen von HTTP-Anfragen genau so 
+leicht zu erfassen sind. Zum Beispiel führen Sie ein HTTP POST wie folgt durch::
 
     >>> r = requests.post("http://httpbin.org/post")
 
-Nice, right? What about the other HTTP request types: PUT, DELETE, HEAD and
-OPTIONS? These are all just as simple::
+Nett, nicht wahr? Wie sieht es mit den anderen HTTP Anforderungen aus: PUT, DELETE, HEAD und
+OPTIONS? Die sind alle ebenso einfach::
 
     >>> r = requests.put("http://httpbin.org/put")
     >>> r = requests.delete("http://httpbin.org/delete")
     >>> r = requests.head("http://httpbin.org/get")
     >>> r = requests.options("http://httpbin.org/get")
 
-That's all well and good, but it's also only the start of what Requests can
-do.
+Das ist alle schön und gut, stellt aber nur den Anfang von dem dar, was Requests leistet.
 
 
-Passing Parameters In URLs
---------------------------
+Parameter in URLs übergeben
+---------------------------
 
-You often want to send some sort of data in the URL's query string. If
-you were constructing the URL by hand, this data would be given as key/value
-pairs in the URL after a question mark, e.g. ``httpbin.org/get?key=val``.
-Requests allows you to provide these arguments as a dictionary, using the
-``params`` keyword argument. As an example, if you wanted to pass
-``key1=value1`` and ``key2=value2`` to ``httpbin.org/get``, you would use the
-following code::
+In vielen Fällen werden Sie Daten in irgendeiner Form im Query-String der URL 
+senden wollen. Falls Sie die URL per Hand zusammenstellen, würden diese Daten
+als Schlüssel/Wert-Paare nach einem Fragezeichen in der URL übergeben werden,
+z.B. ``httpbin.org/get?schluessel=wert``.
+Requests erlaubt es Ihnen, diese Daten in einem Dictionary zu übergeben, in dem
+Sie das ``params`` Schlüsselwortargument benutzen. Als Beispiel nehmen wir an,
+dass Sie ``schluessel1=wert1``und ``schluessel2=wert2`` an ``httpbin.org/get``
+übergeben wollen. Dazu benutzen Sie den folgenden Code:: 
 
-    >>> payload = {'key1': 'value1', 'key2': 'value2'}
+    >>> payload = {'schluessel1': 'wert1', 'schluessel2': 'wert2'}
     >>> r = requests.get("http://httpbin.org/get", params=payload)
 
-You can see that the URL has been correctly encoded by printing the URL::
+Wenn Sie die erzeugte URL ausgeben lassen, sehen Sie, dass diese korrekt erzeugt wurde::
 
     >>> print r.url
-    u'http://httpbin.org/get?key2=value2&key1=value1'
+    u'http://httpbin.org/get?schluessel2=wert2&schluessel1=wert1'
 
 
-Response Content
-----------------
+Daten aus der Antwort
+---------------------
 
-We can read the content of the server's response. Consider the GitHub timeline
-again::
+Wir können den Inhalt der Antwort des Servers lesen. Betrachten wir noch einmal
+die Zeitleiste von Github::
 
     >>> import requests
     >>> r = requests.get('https://github.com/timeline.json')
     >>> r.text
     '[{"repository":{"open_issues":0,"url":"https://github.com/...
 
-Requests will automatically decode content from the server. Most unicode
-charsets are seamlessly decoded.
+Requests dekodiert automatisch den Inhalt der Antwort vom Server. Die meisten
+Unicode-Zeichensätze werden problemlos erkannt.
 
-When you make a request, Requests makes educated guesses about the encoding of
-the response based on the HTTP headers. The text encoding guessed by Requests
-is used when you access ``r.text``. You can find out what encoding Requests is
-using, and change it, using the ``r.encoding`` property::
+Wenn Sie eine Anfrage absenden, versucht Requests anhand der Header die Kodierung
+der Daten in der Antwort zu ermitteln. Die Kodierung, die Requests ermittelt hat,
+wird verwendet, wenn Sie auf ``r.text``zugreifen. Sie können herausfinden, welche
+Zeichenkodierung Requests verwendet (und diese auch ändern), in dem Sie die
+Eigenschaft ``r.encoding``verwenden::
 
     >>> r.encoding
     'utf-8'
     >>> r.encoding = 'ISO-8859-1'
 
-If you change the encoding, Requests will use the new value of ``r.encoding``
-whenever you call ``r.text``.
+Falls Sie die Zeichenkodierung ändern, benutzt Requests diese Zuordnung, sobald 
+Sie auf ``r.text``zugreifen.
 
-Requests will also use custom encodings in the event that you need them. If
-you have created your own encoding and registered it with the ``codecs``
-module, you can simply use the codec name as the value of ``r.encoding`` and
-Requests will handle the decoding for you.
+Requests wird auch benutzerdefinierte Zeichenkodierungen benutzen, wenn Sie diese
+benötigen. Wenn Sie Ihre eigene Kodierung erstellt und im Modul ``codecs``registriert
+haben, können Sie einfach den Namen der Kodierung als Wert für ``r.encoding`` benutzen
+und Requests übernimmt die Dekodierung für Sie.
+
 
 Binary Response Content
 -----------------------
