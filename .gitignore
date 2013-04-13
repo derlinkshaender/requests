@@ -18,3 +18,5 @@ env/
 t.py
 
 t2.py
+
+.DS_Store
